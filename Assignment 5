@@ -1,1 +1,55 @@
+# Assignment 5 – Coding and Documentation with Git
+
+**Student:** Azizbek Ganiev (ID: 475150)  
+**Professor:** Wojciech Hardy  
+**Course:** Reproducible Research 2025  
+
+---
+
+## Task
+The goal of this assignment was to demonstrate correct coding practices, version control with Git, and documentation of reproducible work.
+
+---
+
+## Git Workflow Demonstrated
+```bash
+# Stage and commit cleaned R script
+git add cleaned_analysis.R
+git commit -m "refactor: vectorize operations and improve code structure"
+
+# Push to remote repository
+git push origin main
+```
+
+This workflow illustrates a standard process: staging, committing with a clear message, and pushing to a remote repository.
+
+---
+
+## Global Example: CO₂ Emissions and Documentation
+To connect coding with real-world data, I created a small R script that loads **global CO₂ emissions** (World Bank dataset) and standardizes values for reproducibility.
+
+```r
+# R example: standardizing CO2 emissions
+library(dplyr)
+library(gapminder)
+
+data <- gapminder %>%
+  filter(year == 2007) %>%
+  mutate(co2_per_cap = gdpPercap / 1000) %>%
+  select(country, continent, year, lifeExp, co2_per_cap)
+
+head(data, 5)
+```
+
+This script shows:
+- Use of **vectorized operations** (`mutate`) instead of manual loops.  
+- Proper **variable naming** (`co2_per_cap`).  
+- A reproducible workflow that can be documented and shared.
+
+---
+
+## Reflection
+- Writing clear commit messages improves collaboration and traceability.  
+- Reproducible workflows require code that can run independently with well-documented steps.  
+- Connecting coding tasks to **real-world datasets** (like CO₂ emissions) demonstrates the value of reproducibility in research.
 
